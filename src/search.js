@@ -7,7 +7,7 @@ class Search extends Component{
     render(){
         return (
             
-            <div className="search-text">Search text ...
+            <div className="search-text">Search text
                 <img src={logo}/>
             </div>
         )

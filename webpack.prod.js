@@ -4,6 +4,10 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
+
 module.exports = {
     entry: {
         index: './src/index.js',
@@ -24,7 +28,15 @@ module.exports = {
                 use: [
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => {
+                                require('autoprefixer')()
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -34,6 +46,14 @@ module.exports = {
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                                require('autoprefixer')()
+                            ]
+                        }
+                    },
                     'less-loader'
                 ]
             },
@@ -92,6 +112,7 @@ module.exports = {
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano')
-        })
+        }),
+        new CleanWebpackPlugin()
     ]
 }

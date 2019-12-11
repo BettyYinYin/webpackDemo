@@ -2,7 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 module.exports = {
     // watch: true,
     // watchOptions:{
@@ -60,9 +60,12 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template: './src/search.html'
+            template: './src/search.html',
+            chunks: ['search'],
+            filename: 'search.html',
         }),        
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin()
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
