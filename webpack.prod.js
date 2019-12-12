@@ -177,7 +177,7 @@ module.exports = {
             cssProcessor: require('cssnano')
         }),
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         // new HtmlWebpackExternalsPlugin({
         //     externals: [
         //         {
@@ -193,6 +193,7 @@ module.exports = {
         //     ]
 
         // })
+        new webpack.optimize.ModuleConcatenationPlugin()
     ].concat(htmlWebpackPlugins),
     optimization: {
         splitChunks: {
