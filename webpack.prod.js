@@ -7,7 +7,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin')
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const glob = require('glob')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const setMPA = () => {
     const entry = {}
@@ -20,12 +22,14 @@ const setMPA = () => {
          */
         const matches = entryFile.match(/src\/([^\/]*)\/index\.js$/)
         const pageName = matches && matches[1]
-        console.log('pageName', pageName)
         entry[pageName] = entryFile
         htmlWebpackPlugins.push(new HtmlWebpackPlugin({
             template: path.join(__dirname, `src/${pageName}/index.html`),
             filename: `${pageName}.html`,
-            chunks: [pageName],
+            // chunks不填写会默认将所有的chunk都引入到html页面，
+            // chunks的填写也是有顺序的，会根据此处数组的顺序引入到html文件中
+            chunks: pageName === 'search'?['vendors', 'commons', pageName] :['commons', pageName],
+            // chunks: [pageName],
             minify: {
                 html5: true,
                 minifyCSS: true,
@@ -43,8 +47,10 @@ const setMPA = () => {
     }
 }
 
-const { entry, htmlWebpackPlugins } = setMPA()
-console.log('entry', entry)
+const {
+    entry,
+    htmlWebpackPlugins
+} = setMPA()
 module.exports = {
     // entry: {
     //     index: './src/index/index.js',
@@ -55,7 +61,9 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: '[name]_[chunkhash:8].js'
     },
-    mode: 'production',
+    // mode: 'production',
+    mode: 'none',
+    devtool: 'inline-source-map',
     module: {
         rules: [{
                 test: /\.js$/,
@@ -69,7 +77,7 @@ module.exports = {
                     'css-loader',
                     {
                         loader: 'px2rem-loader',
-                        options:{
+                        options: {
                             remUnit: 75,
                             remPrecision: 8
                         }
@@ -82,7 +90,7 @@ module.exports = {
                             }
                         }
                     },
-                    
+
                 ]
             },
             {
@@ -94,7 +102,7 @@ module.exports = {
                     'css-loader',
                     {
                         loader: 'px2rem-loader',
-                        options:{
+                        options: {
                             remUnit: 75,
                             // 转换的小数位数
                             remPrecision: 8
@@ -109,7 +117,7 @@ module.exports = {
                         }
                     },
                     'less-loader',
-                    
+
                 ]
             },
             {
@@ -168,6 +176,40 @@ module.exports = {
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano')
         }),
-        new CleanWebpackPlugin()
-    ].concat(htmlWebpackPlugins)
+        new CleanWebpackPlugin(),
+        new BundleAnalyzerPlugin(),
+        // new HtmlWebpackExternalsPlugin({
+        //     externals: [
+        //         {
+        //             module: 'react',
+        //             entry: 'https://cdn.bootcss.com/react/16.10.2/umd/react.production.min.js',
+        //             global: 'React'
+        //         },
+        //         {
+        //             module: 'react-dom',
+        //             entry: 'https://cdn.bootcss.com/react-dom/16.10.2/umd/react-dom.production.min.js',
+        //             global: 'ReactDOM'
+        //         }
+        //     ]
+
+        // })
+    ].concat(htmlWebpackPlugins),
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /(react|react-dom)/,
+                    // name对应的是entry里面的每个chunk，这样就可以根据不同的html文件引入不同的chunk
+                    name: 'vendors',
+                    chunks: 'all'
+                },
+                commons: {
+                    minSize: 0,
+                    name: 'commons',
+                    minChunks: 3,
+                    chunks: 'all'
+                }
+            }
+        }
+    }
 }

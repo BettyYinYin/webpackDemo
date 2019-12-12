@@ -1,16 +1,19 @@
 import React, {Component} from 'react'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import './index.less'
 import logo from './imgs/logo_pc.png'
+import {common} from '../../commons'
+import { a } from './tree-shaking'
 
 class Search extends Component{
     render(){
         return (
             <div className="search-text">Search text
+                {common()}
                 <img src={logo}/>
             </div>
         )
     }
 }
 
-ReactDom.render(<Search />, document.getElementById('app'))
+ReactDOM.render(<Search />, document.getElementById('app'))

@@ -1,2 +1,3 @@
 import {helloworld} from './helloworld'
-document.write(helloworld())
+import {common} from '../../commons'
+document.write(common())

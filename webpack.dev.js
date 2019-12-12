@@ -3,6 +3,43 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+
+const glob = require('glob')
+
+const setMPA = () => {
+    const entry = {}
+    const htmlWebpackPlugins = []
+    const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'))
+    Object.keys(entryFiles).map(index => {
+        const entryFile = entryFiles[index]
+        /**
+         * [ 'D:/webpackDemo/src/index/index.js','D:/webpackDemo/src/search/index.js' ]
+         */
+        const matches = entryFile.match(/src\/([^\/]*)\/index\.js$/)
+        const pageName = matches && matches[1]
+        entry[pageName] = entryFile
+        htmlWebpackPlugins.push(new HtmlWebpackPlugin({
+            template: path.join(__dirname, `src/${pageName}/index.html`),
+            filename: `${pageName}.html`,
+            chunks: [pageName],
+            minify: {
+                html5: true,
+                minifyCSS: true,
+                minifyJS: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                removeComments: false
+            }
+        }))
+    })
+    return {
+        entry,
+        htmlWebpackPlugins
+    }
+}
+
+const { entry, htmlWebpackPlugins } = setMPA()
+console.log('entry', entry)
 module.exports = {
     // watch: true,
     // watchOptions:{
@@ -10,10 +47,7 @@ module.exports = {
     //     aggregateTimeout: 300,
     //     poll: 1000
     // },
-    entry: {
-        index: './src/index.js',
-        search: './src/search.js'
-    },
+    entry,
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js'
@@ -59,16 +93,12 @@ module.exports = {
         ]
     },
     plugins:[
-        new HtmlWebpackPlugin({
-            template: './src/search.html',
-            chunks: ['search'],
-            filename: 'search.html',
-        }),        
         new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin()
-    ],
+    ].concat(htmlWebpackPlugins),
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         hot: true
-    }
+    },
+    devtool: 'source-map'
 }
