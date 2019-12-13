@@ -61,8 +61,8 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: '[name]_[chunkhash:8].js'
     },
-    // mode: 'production',
-    mode: 'none',
+    mode: 'production',
+    // mode: 'none',
     devtool: 'inline-source-map',
     module: {
         rules: [{
@@ -143,32 +143,6 @@ module.exports = {
     },
     plugins: [
         // 一个html对应一个htmlWebpackPlugin
-        // new HtmlWebpackPlugin({
-        //     template: path.join(__dirname, 'src/search/index.html'),
-        //     filename: 'search.html',
-        //     chunks: ['search'],
-        //     minify: {
-        //         html5: true,
-        //         minifyCSS: true,
-        //         minifyJS: true,
-        //         collapseWhitespace: true,
-        //         preserveLineBreaks: false,
-        //         removeComments: false
-        //     }
-        // }),
-        // new HtmlWebpackPlugin({
-        //     template: path.join(__dirname, 'src/index/index.html'),
-        //     filename: 'index.html',
-        //     chunks: ['index'],
-        //     minify: {
-        //         html5: true,
-        //         minifyCSS: true,
-        //         minifyJS: true,
-        //         collapseWhitespace: true,
-        //         preserveLineBreaks: false,
-        //         removeComments: false
-        //     }
-        // }),
         new MiniCssExtractPlugin({
             filename: '[name]_[contenthash:8].css'
         }),
@@ -193,7 +167,9 @@ module.exports = {
         //     ]
 
         // })
-        new webpack.optimize.ModuleConcatenationPlugin()
+
+        // scope hoisting插件，production模式下默认开启
+        // new webpack.optimize.ModuleConcatenationPlugin()
     ].concat(htmlWebpackPlugins),
     optimization: {
         splitChunks: {
