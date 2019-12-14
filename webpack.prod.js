@@ -9,7 +9,9 @@ const {
 } = require('clean-webpack-plugin')
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const glob = require('glob')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const {
+    BundleAnalyzerPlugin
+} = require('webpack-bundle-analyzer')
 
 const setMPA = () => {
     const entry = {}
@@ -28,7 +30,7 @@ const setMPA = () => {
             filename: `${pageName}.html`,
             // chunks不填写会默认将所有的chunk都引入到html页面，
             // chunks的填写也是有顺序的，会根据此处数组的顺序引入到html文件中
-            chunks: pageName === 'search'?['vendors', 'commons', pageName] :['commons', pageName],
+            chunks: pageName === 'search' ? ['vendors', 'commons', pageName] : ['commons', pageName],
             // chunks: [pageName],
             minify: {
                 html5: true,
@@ -67,7 +69,9 @@ module.exports = {
     module: {
         rules: [{
                 test: /\.js$/,
-                use: ['babel-loader','eslint-loader']
+                use: ['babel-loader',
+                    // 'eslint-loader'
+                ]
             },
             {
                 test: /\.css$/,

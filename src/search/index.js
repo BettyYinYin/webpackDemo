@@ -1,35 +1,41 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import "./index.less";
-import logo from "./imgs/logo_pc.png";
-// import {common} from '../../commons'
-import { a } from "./tree-shaking";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import largeNumber from 'large-number-bty'
+import './index.less';
+import logo from './imgs/logo_pc.png';
+// import {common} from '../../commons';
+// import { a } from "./tree-shaking";
+
+console.log('largeNumber', largeNumber);
 
 class Search extends Component {
-  constructor() {
-    super(...arguments);
+  constructor(...args) {
+    super(args);
 
     this.state = {
-      Text: null
+      Text: null,
     };
 
-    this.loadComponent = this.loadComponent.bind(this)
+    this.loadComponent = this.loadComponent.bind(this);
   }
 
   loadComponent() {
-    import("./text").then(Text => {
+    import('./text').then((Text) => {
       this.setState({
-        Text: Text.default
+        Text: Text.default,
       });
     });
   }
 
   render() {
-    const {Text} = this.state
+    const { Text } = this.state;
 
     return (
       <div className="search-text">
         Search text
+        {
+          largeNumber('9999999', '1')
+        }
         {
             Text? <Text />: null
         }
@@ -40,4 +46,4 @@ class Search extends Component {
   }
 }
 
-ReactDOM.render(<Search />, document.getElementById("app"));
+ReactDOM.render(<Search />, document.getElementById('app'));

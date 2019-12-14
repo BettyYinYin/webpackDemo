@@ -57,6 +57,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "large-number-bty": "^1.0.0",
     "lib-flexible": "^0.3.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
