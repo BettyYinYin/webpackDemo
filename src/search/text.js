@@ -1,3 +1,4 @@
-import React from 'react';
+// import React from 'react';
+const React = require('react')
 
-export default () => <div>动态 import</div>;
+module.exports = () => <div>动态 import</div>
