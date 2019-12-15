@@ -6,29 +6,27 @@ import logo from './imgs/logo_pc.png';
 // import {common} from '../../commons';
 // import { a } from "./tree-shaking";
 
-console.log('largeNumber', largeNumber);
-
 class Search extends Component {
   constructor(...args) {
-    super(args);
+    super(args)
 
     this.state = {
       Text: null,
-    };
+    }
 
-    this.loadComponent = this.loadComponent.bind(this);
+    this.loadComponent = this.loadComponent.bind(this)
   }
 
   loadComponent() {
     import('./text').then((Text) => {
       this.setState({
         Text: Text.default,
-      });
-    });
+      })
+    })
   }
 
   render() {
-    const { Text } = this.state;
+    const { Text } = this.state
 
     return (
       <div className="search-text">
