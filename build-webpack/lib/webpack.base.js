@@ -8,10 +8,12 @@ const path = require('path');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
+const projectRoot = process.cwd();
+
 const setMPA = () => {
   const entry = {};
   const htmlWebpackPlugins = [];
-  const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
+  const entryFiles = glob.sync(path.join(projectRoot, './src/*/index.js'));
   Object.keys(entryFiles).map((index) => {
     const entryFile = entryFiles[index];
     /**
@@ -21,7 +23,7 @@ const setMPA = () => {
     const pageName = matches && matches[1];
     entry[pageName] = entryFile;
     return htmlWebpackPlugins.push(new HtmlWebpackPlugin({
-      template: path.join(__dirname, `src/${pageName}/index.html`),
+      template: path.join(projectRoot, `src/${pageName}/index.html`),
       filename: `${pageName}.html`,
       // chunks不填写会默认将所有的chunk都引入到html页面，
       // chunks的填写也是有顺序的，会根据此处数组的顺序引入到html文件中
@@ -60,14 +62,15 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          // 'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
         ],
       },
       {
         test: /\.less$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'px2rem-loader',
@@ -105,6 +108,7 @@ module.exports = {
     ],
   },
   plugins: [
+    // 将css提取为文件，而不是生成style标签，插入html
     new MiniCssExtractPlugin({
       filename: '[name]_[contenthash:8].css',
     }),

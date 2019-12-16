@@ -9,7 +9,7 @@ const prodConfig = {
   mode: 'production',
   plugins: [
     new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/g,
+      assetNameRegExp: /\.(css|less)$/g,
       cssProcessor: cssnano,
     }),
     new HtmlWebpackExternalsPlugin({
