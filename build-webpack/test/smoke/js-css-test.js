@@ -1,4 +1,4 @@
-const glob = require('glob-all')
+const glob = require('glob-all');
 
 describe('Checking generated css js files', () => {
   it('should generate css js files', (done) => {
@@ -6,13 +6,12 @@ describe('Checking generated css js files', () => {
       './dist/index_*.js',
       './dist/index_*.css',
       './dist/search_*.js',
-      './dist/search_*.css'
-    ])
-    console.log('files', files)
-    if(files.length > 0){
-      done()
-    }else{
-      throw new Error('no css js files generated')
+      './dist/search_*.css',
+    ]);
+    if (files.length > 0) {
+      done();
+    } else {
+      throw new Error('no css js files generated');
     }
-  })
-})
+  });
+});

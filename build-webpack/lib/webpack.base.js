@@ -52,6 +52,10 @@ const {
 
 module.exports = {
   entry,
+  output: {
+    filename: '[name]_[chunkhash:8].js',
+    path: path.join(projectRoot, 'dist')
+  },
   module: {
     rules: [
       {
