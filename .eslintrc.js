@@ -14,6 +14,6 @@ module.exports = {
         "arrow-body-style": [0, "never"],
         "import/prefer-default-export": 0,
         "array-callback-return": "off",
-        "func-names": "as-needed" 
+        "func-names": "off" 
     }
 }

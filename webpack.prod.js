@@ -149,7 +149,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // 一个html对应一个htmlWebpackPlugin
     new MiniCssExtractPlugin({
       filename: '[name]_[contenthash:8].css'
     }),
