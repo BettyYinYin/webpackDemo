@@ -15,6 +15,8 @@ const {
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
+const Happypack = require('happypack')
+
 const smp = new SpeedMeasurePlugin()
 
 const setMPA = () => {
@@ -57,7 +59,7 @@ const {
   entry,
   htmlWebpackPlugins
 } = setMPA()
-module.exports = smp.wrap({
+module.exports = {
   // entry: {
   //     index: './src/index/index.js',
   //     search: './src/search/index.js'
@@ -75,7 +77,9 @@ module.exports = smp.wrap({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader',
+        use: [
+          'happypack/loader',
+          // 'babel-loader',
           // 'eslint-loader'
         ]
       },
@@ -161,7 +165,10 @@ module.exports = smp.wrap({
     }),
     new CleanWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
+    new Happypack({
+      loaders: ['babel-loader']
+    }),
     // new HtmlWebpackExternalsPlugin({
     //     externals: [
     //         {
@@ -206,10 +213,10 @@ module.exports = smp.wrap({
       }
     }
   },
-  stats: 'errors-only',
+  // stats: 'errors-only',
   // performance: {
   //   hints: 'warning',
   //   maxAssetSize: 30000000,
   //   maxEntrypointSize: 50000000
   // }
-})
+}
