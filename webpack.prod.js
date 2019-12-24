@@ -161,7 +161,7 @@ module.exports = smp.wrap({
     }),
     new CleanWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
     // new HtmlWebpackExternalsPlugin({
     //     externals: [
     //         {
