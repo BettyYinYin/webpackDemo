@@ -7,3 +7,4 @@ describe('webpack.base.js test case', () => {
     assert.equal(baseConfig.entry.index, 'D:/webpackDemo/build-webpack/test/smoke/template/src/index/index.js');
     assert.equal(baseConfig.entry.search, 'D:/webpackDemo/build-webpack/test/smoke/template/src/search/index.js');
   });
+})
