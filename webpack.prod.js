@@ -78,8 +78,14 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          'happypack/loader',
-          // 'babel-loader',
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: 3
+            }
+          },
+          // 'happypack/loader',
+          'babel-loader',
           // 'eslint-loader'
         ]
       },
@@ -166,9 +172,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     // new BundleAnalyzerPlugin(),
-    new Happypack({
-      loaders: ['babel-loader']
-    }),
+    // new Happypack({
+    //   loaders: ['babel-loader']
+    // }),
     // new HtmlWebpackExternalsPlugin({
     //     externals: [
     //         {
