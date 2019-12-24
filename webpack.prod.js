@@ -13,6 +13,9 @@ const {
   BundleAnalyzerPlugin
 } = require('webpack-bundle-analyzer')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+
+const smp = new SpeedMeasurePlugin()
 
 const setMPA = () => {
   const entry = {}
@@ -54,7 +57,7 @@ const {
   entry,
   htmlWebpackPlugins
 } = setMPA()
-module.exports = {
+module.exports = smp.wrap({
   // entry: {
   //     index: './src/index/index.js',
   //     search: './src/search/index.js'
@@ -209,4 +212,4 @@ module.exports = {
   //   maxAssetSize: 30000000,
   //   maxEntrypointSize: 50000000
   // }
-}
+})
