@@ -1,0 +1,439 @@
+ WARNING  Compiled with 2 warnings6:12:51 PM
+
+ warning  
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  SourceHanSansCN-Medium_4abbfb49.otf (8 MiB)
+  vendors_717e9124.js (510 KiB)
+
+ warning  
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  search (566 KiB)
+      vendors_717e9124.js
+      search_6e10c36a.css
+      search_32b52339.js
+
+
+{
+  "errors": [],
+  "warnings": [
+    "asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  SourceHanSansCN-Medium_4abbfb49.otf (8 MiB)\n  vendors_717e9124.js (510 KiB)",
+    "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  search (566 KiB)\n      vendors_717e9124.js\n      search_6e10c36a.css\n      search_32b52339.js\n"
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "D:\\webpackDemo\\node_modules\\react\\index.js",
+      "name": "./node_modules/react/index.js",
+      "index": 3,
+      "index2": 4,
+      "size": 190,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        2
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 1,
+      "identifier": "D:\\webpackDemo\\node_modules\\object-assign\\index.js",
+      "name": "./node_modules/object-assign/index.js",
+      "index": 5,
+      "index2": 2,
+      "size": 2108,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\react\\cjs\\react.production.min.js",
+      "issuerId": 4,
+      "issuerName": "./node_modules/react/cjs/react.production.min.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 0,
+          "identifier": "D:\\webpackDemo\\node_modules\\react\\index.js",
+          "name": "./node_modules/react/index.js"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\webpackDemo\\node_modules\\react\\cjs\\react.production.min.js",
+          "name": "./node_modules/react/cjs/react.production.min.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 2,
+      "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\index.js",
+      "name": "./node_modules/react-dom/index.js",
+      "index": 6,
+      "index2": 8,
+      "size": 1363,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        2
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 3,
+      "identifier": "D:\\webpackDemo\\node_modules\\large-number-bty\\index.js",
+      "name": "./node_modules/large-number-bty/index.js",
+      "index": 10,
+      "index2": 10,
+      "size": 166,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 4,
+      "identifier": "D:\\webpackDemo\\node_modules\\react\\cjs\\react.production.min.js",
+      "name": "./node_modules/react/cjs/react.production.min.js",
+      "index": 4,
+      "index2": 3,
+      "size": 6645,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        2
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\react\\index.js",
+      "issuerId": 0,
+      "issuerName": "./node_modules/react/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 0,
+          "identifier": "D:\\webpackDemo\\node_modules\\react\\index.js",
+          "name": "./node_modules/react/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 5,
+      "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\cjs\\react-dom.production.min.js",
+      "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+      "index": 7,
+      "index2": 7,
+      "size": 119155,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        2
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\react-dom\\index.js",
+      "issuerId": 2,
+      "issuerName": "./node_modules/react-dom/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 2,
+          "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\index.js",
+          "name": "./node_modules/react-dom/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 6,
+      "identifier": "D:\\webpackDemo\\node_modules\\scheduler\\index.js",
+      "name": "./node_modules/scheduler/index.js",
+      "index": 8,
+      "index2": 6,
+      "size": 198,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\react-dom\\cjs\\react-dom.production.min.js",
+      "issuerId": 5,
+      "issuerName": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 2,
+          "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\index.js",
+          "name": "./node_modules/react-dom/index.js"
+        },
+        {
+          "id": 5,
+          "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\cjs\\react-dom.production.min.js",
+          "name": "./node_modules/react-dom/cjs/react-dom.production.min.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 7,
+      "identifier": "D:\\webpackDemo\\node_modules\\scheduler\\cjs\\scheduler.production.min.js",
+      "name": "./node_modules/scheduler/cjs/scheduler.production.min.js",
+      "index": 9,
+      "index2": 5,
+      "size": 5109,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\scheduler\\index.js",
+      "issuerId": 6,
+      "issuerName": "./node_modules/scheduler/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 2,
+          "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\index.js",
+          "name": "./node_modules/react-dom/index.js"
+        },
+        {
+          "id": 5,
+          "identifier": "D:\\webpackDemo\\node_modules\\react-dom\\cjs\\react-dom.production.min.js",
+          "name": "./node_modules/react-dom/cjs/react-dom.production.min.js"
+        },
+        {
+          "id": 6,
+          "identifier": "D:\\webpackDemo\\node_modules\\scheduler\\index.js",
+          "name": "./node_modules/scheduler/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 8,
+      "identifier": "D:\\webpackDemo\\node_modules\\large-number-bty\\dist\\large-number.min.js",
+      "name": "./node_modules/large-number-bty/dist/large-number.min.js",
+      "index": 11,
+      "index2": 9,
+      "size": 1454,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\large-number-bty\\index.js",
+      "issuerId": 3,
+      "issuerName": "./node_modules/large-number-bty/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        },
+        {
+          "id": 3,
+          "identifier": "D:\\webpackDemo\\node_modules\\large-number-bty\\index.js",
+          "name": "./node_modules/large-number-bty/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 9,
+      "identifier": "D:\\webpackDemo\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!D:\\webpackDemo\\node_modules\\css-loader\\dist\\cjs.js!D:\\webpackDemo\\node_modules\\px2rem-loader\\index.js??ref--6-2!D:\\webpackDemo\\node_modules\\postcss-loader\\src\\index.js??ref--6-3!D:\\webpackDemo\\node_modules\\less-loader\\dist\\cjs.js!D:\\webpackDemo\\src\\search\\index.less",
+      "name": "./src/search/index.less",
+      "index": 12,
+      "index2": 12,
+      "size": 39,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 10,
+      "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\index\\index.js 58fa72a0bb280b0557f416175fd3aa8f",
+      "name": "./src/index/index.js + 1 modules",
+      "index": 0,
+      "index2": 1,
+      "size": 216,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 11,
+      "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js dd719ec6c123ad0d7f666d60d068e2a5",
+      "name": "./src/search/index.js + 1 modules",
+      "index": 2,
+      "index2": 14,
+      "size": 3774,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        1
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": 12,
+      "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\text.js",
+      "name": "./src/search/text.js",
+      "index": 15,
+      "index2": 15,
+      "size": 160,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        3
+      ],
+      "issuer": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/search/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\webpackDemo\\node_modules\\babel-loader\\lib\\index.js!D:\\webpackDemo\\src\\search\\index.js",
+          "name": "./src/search/index.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "filteredModules": 1,
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  }
+}
