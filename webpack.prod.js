@@ -16,7 +16,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const Happypack = require('happypack')
-
+const HardSourcePlugin = require('hard-source-webpack-plugin')
 const smp = new SpeedMeasurePlugin()
 
 const setMPA = () => {
@@ -202,7 +202,8 @@ module.exports = {
     },
     new webpack.DllReferencePlugin({
       manifest: require('./build/library/library.json')
-    })
+    }),
+    new HardSourcePlugin()
   ].concat(htmlWebpackPlugins),
   optimization: {
     minimizer: [
