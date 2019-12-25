@@ -14,7 +14,7 @@ const {
 } = require('webpack-bundle-analyzer')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-
+const TerserPlugin = require('terser-webpack-plugin')
 const Happypack = require('happypack')
 
 const smp = new SpeedMeasurePlugin()
@@ -199,9 +199,17 @@ module.exports = {
           process.exit(1)
         }
       })
-    }
+    },
+    new webpack.DllReferencePlugin({
+      manifest: require('./build/library/library.json')
+    })
   ].concat(htmlWebpackPlugins),
   optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: 4
+      })
+    ],
     splitChunks: {
       cacheGroups: {
         vendor: {
