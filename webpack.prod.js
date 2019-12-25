@@ -173,7 +173,7 @@ module.exports = {
     new FriendlyErrorsWebpackPlugin(),
     // new BundleAnalyzerPlugin(),
     // new Happypack({
-    //   loaders: ['babel-loader']
+    //   loaders: ['babel-loader?cacheDirectory=true']
     // }),
     // new HtmlWebpackExternalsPlugin({
     //     externals: [
@@ -207,7 +207,8 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        parallel: 4
+        parallel: 4,
+        cache: true
       })
     ],
     splitChunks: {
