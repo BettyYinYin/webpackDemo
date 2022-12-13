@@ -59,7 +59,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "large-number-bty": "^1.0.0",
     "lib-flexible": "^0.3.2",
     "react": "^16.12.0",
